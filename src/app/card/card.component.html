@@ -1,0 +1,42 @@
+<div class="container mb-3">
+   <div class="row text-center">
+    <div class="col-lg-6">
+        <h1>Fillter Product</h1>
+        <div class=" w-100 btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" (click)="doFilter('mobile')">
+            <label class="btn btn-outline-primary" for="btnradio1">MOBILE</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" (click)="doFilter('tv')">
+            <label class="btn btn-outline-primary" for="btnradio2">TV</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"(click)="doFilter('ac')">
+            <label class="btn btn-outline-primary" for="btnradio3">AC</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off"(click)="doFilter('all')">
+            <label class="btn btn-outline-primary" for="btnradio4">All</label>
+          </div>
+    </div>
+    <div class="col-lg-6">
+        <h1>Search Product</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter product name" [(ngModel)]="search_by_value">
+        </div>
+    </div>
+   </div>
+</div>
+
+
+  <div class="row">
+    <div class="card col-lg-4 m-3"
+     style="width: 18rem;" 
+     *ngFor="let product of filtered_products">
+        <img [src]="product.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">NAME : {{product.name}}</h5>
+          <h5 class="card-title">PRICE : {{product.price}}</h5>
+          <h5 class="card-title">CATEGORY : {{product.category}}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Buy here</a>
+        </div>
+      </div>
+  </div>
